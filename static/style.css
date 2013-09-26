@@ -4,8 +4,6 @@ body {
 }
 
 #nodes {
-    float: left;
-    max-width: 500px;
     width: 50%;
 }
 
@@ -32,11 +30,11 @@ body {
 
 #node-data {
     font-family: 'Courier New', mono;
-    float: left;
+    left: 50%;
     margin-left: 20px;
     margin-top: 5px;
-    max-width: 600px;
-    width: 45%;
+    position: fixed;
+    top: 5px;
 }
 
 .node-data-row {
