@@ -16,5 +16,11 @@ Change the ZK_HOSTS value to point to the ZooKeeper servers you want to view in 
 
 #### Usage
 
+To run simple-zookeeper-viewer, execute
+
+    $ python viewer.py
+    
+Then navigate to http://localhost:5000/zk to view the root of the ZooKeeper server. Host/port can be configured via Flask
+
 * Click on a node to view data and metadata on that node
 * Double click on a node to view that node and its children
