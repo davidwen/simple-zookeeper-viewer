@@ -1,0 +1,6 @@
+<div class="node-data-row">PATH: {{ path }}</div>
+<div class="node-data-row">DATA: {{ data }}</div>
+<br>
+{% for attr in meta %}
+  <div class="node-data-row">{{ attr }}: {{ meta[attr] }}</div>
+{% endfor %}

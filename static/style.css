@@ -1,0 +1,48 @@
+body {
+    font-family: Verdana, Arial, sans-serif;
+    margin: 10px;
+}
+
+#nodes {
+    float: left;
+    max-width: 500px;
+    width: 50%;
+}
+
+.node {
+    background-color: #ddd;
+    margin: 5px 0;
+    padding: 5px;
+}
+
+.node.hover {
+    background-color: #ccc;
+}
+
+.node.selected {
+    background-color: #34495e;
+    color: #eee;
+    cursor: pointer;
+}
+
+.no-children {
+    color: #888;
+    font-style: italic;
+}
+
+#node-data {
+    font-family: 'Courier New', mono;
+    float: left;
+    margin-left: 20px;
+    margin-top: 5px;
+    max-width: 400px;
+    width: 40%;
+}
+
+.node-data-row {
+    line-height: 1.312;
+}
+
+.clear {
+    clear: both;
+}

@@ -1,0 +1,74 @@
+<!doctype html>
+<html>
+<head>
+  <title>Simple ZooKeeper Viewer</title>
+  <link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div id="container">
+    <div id="nodes"></div>
+    <div id="node-data"></div>
+    <div class="clear">
+  </div>
+</body>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+<script>
+  $(function() {
+    var getNodePath = function($node) {
+      return $node.attr('data-path');
+    };
+
+    var getNodes = function(path) {
+      $.get(
+        '/nodes' + path,
+        function(html) {
+          $('#nodes').html(html);
+        });
+    };
+
+    var getData = function(path) {
+      $.get(
+        '/data' + path,
+        function(html) {
+          $('#node-data').html(html);
+        });
+    };
+
+    $('#nodes')
+      .on('mouseenter', '.node', function() {
+        if (!$(this).hasClass('selected')) {
+          $(this).addClass('hover');
+        }
+      })
+      .on('mouseleave', '.node', function() {
+        $(this).removeClass('hover');
+      })
+      .on('click', '.node', function() {
+        var path = getNodePath($(this));
+        if (!$(this).hasClass('selected')) {
+          // View data
+          $('.node.selected').removeClass('selected');
+          $(this).addClass('selected');
+          getData(path);
+        } else {
+          // Go to node
+          history.pushState({path: path}, '', '/zk' + path);
+          getNodes(path);
+          getData(path);
+        }
+      });
+
+    window.onpopstate = function(event) {
+      var path;
+      if (event.state) {
+        path = event.state.path;
+      } else {
+        path = '/{{ path }}';
+      } 
+      getNodes(path);
+      getData(path);
+    };
+
+  });
+</script>
+</html>

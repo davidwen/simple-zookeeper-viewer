@@ -1,0 +1,8 @@
+{% for ancestor in ancestors %}
+  <div class="node ancestor {% if loop.index == loop.length %}selected{% endif %}" style="margin-left: {{ 20 * loop.index }}px" data-path="{{ ancestor.full_path }}">{{ ancestor.name }}</div>
+{% endfor %}
+{% for child in children %}
+  <div class="node" style="margin-left: {{ 20 * (ancestors|count + 1) }}px" data-path="{{ path }}{{ child }}">{{ child }}</div>
+{% else %}
+  <div class="no-children" style="margin-left: {{ 20 * (ancestors|count + 1) }}px">(no children)</div>
+{% endfor %}
