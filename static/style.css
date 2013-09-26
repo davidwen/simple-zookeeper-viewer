@@ -10,7 +10,7 @@ body {
 .node {
     background-color: #ddd;
     margin: 5px 0;
-    padding: 5px;
+    padding: 5px 8px;
 }
 
 .node.hover {
@@ -21,6 +21,10 @@ body {
     background-color: #34495e;
     color: #eee;
     cursor: pointer;
+}
+
+.ancestor {
+    border-radius: 10px;
 }
 
 .no-children {
