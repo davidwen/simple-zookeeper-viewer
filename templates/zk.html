@@ -68,6 +68,11 @@
       getData(path);
     };
 
+    if (navigator.userAgent.toLowerCase().indexOf('firefox') > -1) {
+      var path = '/{{ path }}';
+      getNodes(path);
+      getData(path);
+    }
   });
 </script>
 </html>
