@@ -51,6 +51,14 @@
           getData(path);
         } else {
           // Go to node
+
+          // Clear selection on double clic
+          if (window.getSelection) {
+            window.getSelection().removeAllRanges();
+          } else if (document.selection) {
+            document.selection.empty();
+          }
+
           history.pushState({path: path}, '', '/zk' + path);
           getNodes(path);
           getData(path);
@@ -63,7 +71,7 @@
         path = event.state.path;
       } else {
         path = '/{{ path }}';
-      } 
+      }
       getNodes(path);
       getData(path);
     };
