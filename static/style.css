@@ -35,12 +35,16 @@ body {
     float: left;
     margin-left: 20px;
     margin-top: 5px;
-    max-width: 400px;
-    width: 40%;
+    max-width: 600px;
+    width: 45%;
 }
 
 .node-data-row {
     line-height: 1.312;
+}
+
+.node-data-row.data-field {
+    margin-left: 20px;
 }
 
 .clear {

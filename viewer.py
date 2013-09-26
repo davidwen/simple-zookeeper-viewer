@@ -1,3 +1,4 @@
+import json
 from flask import Flask, render_template, g, jsonify, request
 from kazoo.client import KazooClient
 app = Flask(__name__)
@@ -63,10 +64,19 @@ def data(path):
         meta[attr] = getattr(node[1], attr)
     if path.endswith('/'):
         path = path[:-1]
+    data = parse_data(node[0])
     return render_template('_data.html',
         path='/' + path,
-        data=node[0],
+        data=data,
+        is_dict=type(data) == dict,
         meta=meta);
+
+def parse_data(raw_data):
+    try:
+        data = json.loads(raw_data)
+        return data
+    except:
+        return raw_data
 
 if __name__ == '__main__':
     app.run()

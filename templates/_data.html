@@ -1,5 +1,13 @@
 <div class="node-data-row">PATH: {{ path }}</div>
-<div class="node-data-row">DATA: {{ data }}</div>
+<div class="node-data-row">DATA:
+  {% if not is_dict %}
+    {{ data }}
+  {% else %}
+    {% for attr in data %}
+      <div class="node-data-row data-field">{{ attr }}: {{ data[attr] }}</div>
+    {% endfor %}
+  {% endif %}
+</div>
 <br>
 {% for attr in meta %}
   <div class="node-data-row">{{ attr }}: {{ meta[attr] }}</div>
