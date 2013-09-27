@@ -33,7 +33,7 @@ def teardown_request(exception):
 @app.route('/zk/', defaults={'path': ''})
 @app.route('/zk/<path:path>')
 def view(path):
-    return render_template('zk.html', path=path)
+    return render_template('zk.html', path=path, host=ZK_HOSTS)
 
 @app.route('/nodes/', defaults={'path': ''})
 @app.route('/nodes/<path:path>')

@@ -3,6 +3,14 @@ body {
     margin: 10px;
 }
 
+#host {
+    font-weight: bold;
+    height: 30px;
+    line-height: 30px;
+    margin-left: 20px;
+    margin-bottom: 5px;
+}
+
 #nodes {
     width: 50%;
 }
@@ -38,7 +46,7 @@ body {
     margin-left: 20px;
     margin-top: 5px;
     position: fixed;
-    top: 5px;
+    top: 35px;
 }
 
 .node-data-row {
