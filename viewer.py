@@ -30,6 +30,7 @@ def teardown_request(exception):
         g.zk.stop()
         g.zk.close()
 
+@app.route('/', defaults={'path': ''})
 @app.route('/zk/', defaults={'path': ''})
 @app.route('/zk/<path:path>')
 def view(path):
@@ -76,7 +77,17 @@ def parse_data(raw_data):
         data = json.loads(raw_data)
         return data
     except:
-        return raw_data
+        return repr(raw_data)
 
 if __name__ == '__main__':
-    app.run()
+    import sys
+    host = '127.0.0.1'
+    port = 5000
+    if len(sys.argv) > 1:
+        host = sys.argv[1]
+    if len(sys.argv) > 2:
+        port = int(sys.argv[2])
+
+    app.run(host=host, port=port, debug=True)
+
+
