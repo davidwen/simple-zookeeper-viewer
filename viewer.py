@@ -1,10 +1,14 @@
 import json
+import os
 from flask import Flask, render_template, g, jsonify, request
 from kazoo.client import KazooClient
+
+
 app = Flask(__name__)
 
 # Host string of the ZooKeeper servers to connect to
-ZK_HOSTS = '127.0.0.1:2181'
+ZK_HOSTS_DEFAULT = "127.0.0.1:2181"
+ZK_HOSTS = os.environ.get("ZK_HOSTS", ZK_HOSTS_DEFAULT)
 
 # Node metadata to view
 ZNODESTAT_ATTR = [
