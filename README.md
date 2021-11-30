@@ -12,7 +12,10 @@ Requirements can be installed via pip and the provided INSTALL file.
 
 #### Configuration
 
-Change the ZK_HOSTS value to point to the ZooKeeper servers you want to view in viewer.py
+The default ZooKeeper host to connect to is `127.0.0.1:2181`.
+Override the hosts string through setting the environment variable `ZK_HOSTS`
+(or editing it in `viewer.py`)
+before running the app.
 
 #### Usage
 
